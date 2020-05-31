@@ -9,13 +9,14 @@ import {SnackbarProvider} from "notistack"
 import 'mobx-react-lite/batchingForReactDom'
 import {Provider} from "mobx-react"
 import userStore from "./features/secure/stores/userStore"
+import rootStore from "./stores/rootStore"
 
 ReactDOM.render(
     <React.Fragment>
         <MuiThemeProvider theme={theme}>
             <SnackbarProvider>
                 <Router>
-                    <Provider user={userStore}>
+                    <Provider user={userStore} root={rootStore}>
                         <App/>
                     </Provider>
                 </Router>
