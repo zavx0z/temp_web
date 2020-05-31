@@ -8,15 +8,22 @@ export default types
         video: types.maybe(video),
     })
     .volatile(self => ({
-        query: ''
+        query: '',
+        taskId: undefined
     }))
     .actions(self => {
         const {sio} = getEnv(self)
         return {
             afterCreate() {
                 sio.on('message', message => {
-                    console.log(message)
+                    const {id, msg} = message
+                    self.setTaskId(id)
+                    console.log("message", msg)
                 })
+            },
+            setTaskId(id) {
+                self.taskId = id
+                console.log(self.taskId)
             },
             changeQuery(e) {
                 e.preventDefault()
