@@ -80,7 +80,6 @@ export default ({redirect}) => {
                                 value={value}
                                 onChange={handleChange}
                                 indicatorColor="secondary"
-                                // textColor="secondary"
                                 variant={"fullWidth"}
                                 centered
                             >
