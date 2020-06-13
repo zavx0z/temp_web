@@ -1,7 +1,5 @@
-import BASE_URL from "./BASE_URL"
-
 export default {
-    root: `${BASE_URL}/api`,
+    root: `${process.env.REACT_APP_HOST}/api`,
     get runTask() {
         return `${this.root}/task`
     }
